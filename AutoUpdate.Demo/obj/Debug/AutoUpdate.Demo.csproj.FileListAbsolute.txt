@@ -1,0 +1,12 @@
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\bin\Debug\AutoUpdate.Demo.exe.config
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\bin\Debug\AutoUpdate.Demo.exe
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\bin\Debug\AutoUpdate.Demo.pdb
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.Form1.resources
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.Properties.Resources.resources
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.csproj.GenerateResource.Cache
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.exe
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.pdb
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.csprojResolveAssemblyReference.cache
+E:\xmj\WorkSpace\Git\AutoUpdateDemo\AutoUpdate.Demo\bin\Debug\AutoUpdate.Demo.exe.config
+E:\xmj\WorkSpace\Git\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.exe
+E:\xmj\WorkSpace\Git\AutoUpdateDemo\AutoUpdate.Demo\obj\Debug\AutoUpdate.Demo.pdb

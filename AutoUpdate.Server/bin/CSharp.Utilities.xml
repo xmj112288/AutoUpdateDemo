@@ -1,0 +1,2443 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharp.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:CSharp.Utilities.CommonRegexes">
+            <summary>
+                常用正则
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsEmail(System.String)">
+            <summary>
+                验证邮箱
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.HasEmail(System.String)">
+            <summary>
+                是否包含邮箱
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsUrl(System.String)">
+            <summary>
+                验证网址
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.HasUrl(System.String)">
+            <summary>
+                是否包含Url
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsDateTime(System.String)">
+            <summary>
+                验证日期
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsMobile(System.String)">
+            <summary>
+                验证手机号
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.HasMobile(System.String)">
+            <summary>
+                是否包含手机号
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsIp(System.String)">
+            <summary>
+                验证IP
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsIdCard(System.String)">
+            <summary>
+                验证身份证是否有效
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsIdCard18(System.String)">
+            <summary>
+                18位
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsIdCard15(System.String)">
+            <summary>
+                15位
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsInt(System.String)">
+            <summary>
+                是不是Int型的
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsLengthStr(System.String,System.Int32,System.Int32)">
+            <summary>
+                看字符串的长度是不是在限定数之间 一个中文为两个字符
+            </summary>
+            <param name="source">字符串</param>
+            <param name="begin">大于等于</param>
+            <param name="end">小于等于</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsTel(System.String)">
+            <summary>
+                是不是固话
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsPostCode(System.String)">
+            <summary>
+                邮政编码 6个数字
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsChinese(System.String)">
+            <summary>
+                是否是中文汉字
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.HasChinese(System.String)">
+            <summary>
+            是否包含中文汉字
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.CommonRegexes.IsNormalChar(System.String)">
+            <summary>
+                验证是不是正常字符 字母，数字，下划线的组合
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.ConvertHelper">
+            <summary>
+                常用的转换方法
+                数字转换成人民币大写
+                汉字转换成拼音
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.ConvertHelper.ConvertToRmbDaXie(System.Double)">
+            <summary>
+                转换人民币大小金额
+                思路:
+                1.将数字转换为汉字大写 10000.01->壹万零仟零佰零拾零元零角壹分
+                2.处理零               壹万零仟零佰零拾零元零角壹分->壹万元零壹分
+            </summary>
+            <returns>返回大写形式</returns>
+        </member>
+        <member name="M:CSharp.Utilities.ConvertHelper.ConvertToRmbDaXie(System.String)">
+            <summary>
+            转成人民币大写
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ConvertHelper.RmbFormart(System.String)">
+            <summary>
+            处理零
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ConvertHelper.ConvertToPinYin(System.String)">
+            <summary>
+                汉字转换成全拼的拼音
+                思路:
+                1.找出汉字对应的机内码
+                2.根据机内码获取对应的拼音
+            </summary>
+            <param name="str">汉字字符串</param>
+            <returns>转换后的拼音字符串</returns>
+        </member>
+        <member name="M:CSharp.Utilities.ConvertHelper.GetFirstLetter(System.String)">
+            <summary>
+                取汉字拼音的首字母
+            </summary>
+            <param name="str">汉字</param>
+            <returns>首字母</returns>
+        </member>
+        <member name="T:CSharp.Utilities.SqlManager">
+            <summary>
+            数据库操作
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.CanConnect(System.String,System.Int32)">
+            <summary>
+            判断是否能连上数据库
+            </summary>
+            <param name="conn"></param>
+            <param name="retry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.GetDataSetBySql(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行sql语句，返回DataSet
+            </summary>
+            <param name="conn"></param>
+            <param name="sql"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.GetDataSetByProc(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程，返回DataSet
+            </summary>
+            <param name="conn"></param>
+            <param name="procName"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.GetTableBySql(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行sql语句，返回datatable
+            </summary>
+            <param name="conn"></param>
+            <param name="sql"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.GetTableByProc(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程，返回datatable
+            </summary>
+            <param name="conn"></param>
+            <param name="procName"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.ScalarBySql(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行sql语句，返回第一行第一列结果
+            </summary>
+            <param name="conn"></param>
+            <param name="sql"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.ScalarByProc(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程，返回第一行第一列结果
+            </summary>
+            <param name="conn"></param>
+            <param name="sql"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.NonQueryBySql(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行sql语句，返回受影响行数
+            </summary>
+            <param name="conn"></param>
+            <param name="sql"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.NonQueryByProc(System.String,System.String,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行存储过程，返回受影响行数
+            </summary>
+            <param name="conn"></param>
+            <param name="sql"></param>
+            <param name="retry"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.InsertDb(System.String,System.String,System.Data.DataTable,System.Int32)">
+            <summary>
+            批量入库
+            </summary>
+            <param name="tabel"></param>
+            <param name="retry"></param>
+            <param name="conn"></param>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.FillTable``1(System.Collections.Generic.List{``0},System.Data.DataTable)">
+            <summary>
+            填充实体表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list">实体类集合</param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.FillTable``1(``0,System.Data.DataTable)">
+            <summary>
+            填充实体表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">实体类</param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:CSharp.Utilities.SqlManager.FillModel``1(System.Data.DataTable)">
+            <summary>
+            用数据库表，填充实体
+            </summary>
+            <param name="table"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:CSharp.Utilities.DesEncrypt">
+            <summary>
+                Des加密
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.DesEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+                DES加密字符串
+            </summary>
+            <param name="encryptString">待加密的字符串</param>
+            <param name="encryptKey">加密密钥,要求为8位</param>
+            <returns>加密成功返回加密后的字符串,失败返回源串</returns>
+        </member>
+        <member name="M:CSharp.Utilities.DesEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+                DES解密字符串
+            </summary>
+            <param name="decryptString">待解密的字符串</param>
+            <param name="decryptKey">解密密钥,要求为8位,和加密密钥相同</param>
+            <returns>解密成功返回解密后的字符串,失败返源串</returns>
+        </member>
+        <member name="T:CSharp.Utilities.EnumHelper">
+            <summary>
+                枚举帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.EnumHelper.GetEnumArray``1">
+            <summary>
+                获取枚举 数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.EnumHelper.GetDescription(System.Enum)">
+            <summary>
+                获取枚举描述信息(扩展方法)
+            </summary>
+            <param name="enumeration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.ExcelHelper">
+            <summary>
+            Excel 操作类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.ExcelHelper.GetSetFromExcel(System.String,System.String)">
+            <summary>
+            读取 Excel
+            </summary>
+            <param name="filePath">路径</param>
+            <param name="sheetName">Sheet 名</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.HttpBase">
+            <summary>
+            HttpHelper
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.GetHtml(CSharp.Utilities.HttpItem)">
+            <summary>
+            获取源码
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.SetUrl(CSharp.Utilities.HttpItem)">
+            <summary>
+            设置 Url
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.SetRequest(CSharp.Utilities.HttpItem,System.Net.HttpWebRequest)">
+            <summary>
+            设置参数
+            </summary>
+            <param name="item"></param>
+            <param name="request"></param>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.GetHttpReponseData(System.Net.HttpWebRequest,CSharp.Utilities.HttpItem,System.Int32)">
+            <summary>
+            获取 Html 源码
+            </summary>
+            <param name="request"></param>
+            <param name="item"></param>
+            <param name="retry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.SetCookie(CSharp.Utilities.HttpItem,System.Net.HttpWebRequest)">
+            <summary>
+            设置Cookie
+            </summary>
+            <param name="item"></param>
+            <param name="request"></param>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.SetProxy(System.Net.HttpWebRequest,CSharp.Utilities.HttpItem)">
+            <summary>
+            设置代理
+            </summary>
+            <param name="request"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.SetPostData(System.Net.HttpWebRequest,CSharp.Utilities.HttpItem)">
+            <summary>
+            设置Post数据
+            </summary>
+            <param name="request"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.SetHead(System.Net.HttpWebRequest,CSharp.Utilities.HttpItem)">
+            <summary>
+            设置 request.Headers
+            </summary>
+            <param name="request"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.ResolveSetCookie(System.String)">
+            <summary>
+            解析 SetCookie
+            </summary>
+            <param name="cookie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.ResolveCookie(System.String)">
+            <summary>
+            解析 Cookie
+            </summary>
+            <param name="cookie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.HttpBase.IgnoreEncode(System.Net.HttpWebResponse,System.Byte[])">
+            <summary>
+            无视编码
+            </summary>
+            <param name="response"></param>
+            <param name="responseStream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.HttpItem">
+            <summary>
+            Post 参数
+            </summary>
+        </member>
+        <member name="F:CSharp.Utilities.HttpItem.HeadList">
+            <summary>
+            特殊的头信息
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Url">
+            <summary>
+            链接
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Method">
+            <summary>
+            发包方式（GET/POST）
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Host">
+            <summary>
+            Host
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.UserAgent">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.ContentType">
+            <summary>
+            ContentType
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.PostData">
+            <summary>
+            POST 参数
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Accept">
+            <summary>
+            Accept
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Referer">
+            <summary>
+            Referer
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Cookie">
+            <summary>
+            发包Cookie
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.CookieContainer">
+            <summary>
+            CookieContainer
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.SetCookie">
+            <summary>
+            返回的Cookie
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Html">
+            <summary>
+            string类型的返回值
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.Bytes">
+            <summary>
+            Byte[]类型的返回值
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.ProxyIp">
+            <summary>
+            代理Ip
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.ProxyName">
+            <summary>
+            代理用户名
+            </summary>
+        </member>
+        <member name="P:CSharp.Utilities.HttpItem.ProxyPwd">
+            <summary>
+            代理密码
+            </summary>
+        </member>
+        <member name="T:CSharp.Utilities.ImageHelper">
+            <summary>
+            图片帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToJpg(System.String,System.Byte[])">
+            <summary>
+                二进制转本地图片
+            </summary>
+            <param name="filePath">图片储存路径</param>
+            <param name="bytes"></param>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToJpg(System.String,System.Drawing.Bitmap)">
+            <summary>
+                Bitmap 转本地图片
+            </summary>
+            <param name="filePath">图片储存路径</param>
+            <param name="bitmap"></param>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToBitmap(System.Byte[])">
+            <summary>
+                二进制转 Bitmap
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToBitmap(System.String)">
+            <summary>
+                本地图片转 Bitmap
+            </summary>
+            <param name="filePath">图片路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToBytes(System.String)">
+            <summary>
+                本地图片转二进制
+            </summary>
+            <param name="filePath">图片路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToBytes(System.Drawing.Bitmap)">
+            <summary>
+                Bitmap 转二进制
+            </summary>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToIcon(System.Drawing.Bitmap)">
+            <summary>
+            Bitmap 转 Icon
+            </summary>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ImageHelper.ToIcon(System.String)">
+            <summary>
+            Bitmap 转 Icon
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.DirectoryHelper">
+            <summary>
+                文件夹操作类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.IsExistDirectory(System.String)">
+            <summary>
+                检测指定目录是否存在
+            </summary>
+            <param name="directoryPath">目录的绝对路径</param>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.GetFileNames(System.String)">
+            <summary>
+                获取指定目录中所有文件列表
+            </summary>
+            <param name="directoryPath">指定目录的绝对路径</param>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.GetDirectories(System.String)">
+            <summary>
+                获取指定目录中所有子目录列表
+            </summary>
+            <param name="directoryPath">指定目录的绝对路径</param>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.ClearDirectory(System.String)">
+            <summary>
+                清空文件夹
+            </summary>
+            <param name="directoryPath"></param>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.DeleteDirectory(System.String)">
+            <summary>
+                删除文件夹
+            </summary>
+            <param name="directoryPath"></param>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.CreateDirectory(System.String)">
+            <summary>
+                创建文件夹
+            </summary>
+            <param name="directoryPath"></param>
+        </member>
+        <member name="M:CSharp.Utilities.DirectoryHelper.MoveDirectory(System.String,System.String,System.Boolean)">
+            <summary>
+                移动文件夹
+            </summary>
+            <param name="fromPath"></param>
+            <param name="toPath"></param>
+            <param name="isCover">如果目标文件夹已存在,则覆盖</param>
+        </member>
+        <member name="T:CSharp.Utilities.FileHelper">
+            <summary>
+                文件操作帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.IsExistFile(System.String)">
+            <summary>
+                判断文件是否存在
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.CreateFile(System.String)">
+            <summary>
+                创建文件,如果目标文件已存在,则覆盖
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.ClearFile(System.String)">
+            <summary>
+                清空文件
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.WriteFile(System.String,System.String)">
+            <summary>
+                写入内容到新文件,如果文件存在则覆盖
+            </summary>
+            <param name="filePath"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.WriteFile(System.String,System.Byte[])">
+            <summary>
+                写入内容到新文件,如果文件存在则覆盖
+            </summary>
+            <param name="filePath"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.AppendText(System.String,System.String)">
+            <summary>
+                追加内容到文件,文件不存在,则创建新文件
+            </summary>
+            <param name="filePath"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.CopyFile(System.String,System.String,System.Boolean)">
+            <summary>
+                复制文件,支持覆盖已有文件
+            </summary>
+            <param name="fromPath"></param>
+            <param name="toPath"></param>
+            <param name="isCover">是否覆盖已有文件</param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.MoveFile(System.String,System.String,System.Boolean)">
+            <summary>
+                移动文件,支持覆盖已有文件
+            </summary>
+            <param name="fromPath"></param>
+            <param name="toPath"></param>
+            <param name="isCover">目标文件存在,则覆盖</param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.DeleteFile(System.String)">
+            <summary>
+                删除文件
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.ReadAllText(System.String)">
+            <summary>
+                读取文件
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.ReadAllLines(System.String)">
+            <summary>
+                读取文件
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.ReadAllBytes(System.String)">
+            <summary>
+                读取文件
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.GetFileName(System.String)">
+            <summary>
+                从文件的绝对路径中获取文件名( 包含扩展名 )
+            </summary>
+            <param name="filePath">文件的绝对路径</param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.GetFileNameWithoutExtension(System.String)">
+            <summary>
+                从文件的绝对路径中获取文件名( 不包含扩展名 )
+            </summary>
+            <param name="filePath">文件的绝对路径</param>
+        </member>
+        <member name="M:CSharp.Utilities.FileHelper.GetFileExtension(System.String)">
+            <summary>
+                从文件的绝对路径中获取扩展名
+            </summary>
+            <param name="filePath">文件的绝对路径</param>
+        </member>
+        <member name="T:CSharp.Utilities.IpHelper">
+            <summary>
+                Ip帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.IpHelper.GetIp">
+            <summary>
+                获取本机Ip地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.IpHelper.Ping(System.String,System.Int32)">
+            <summary>
+            ping ip
+            </summary>
+            <param name="ip"></param>
+            <param name="timeOut"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.LogHelper">
+            <summary>
+            日志输出
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.LogHelper.WriteLogToFilePerHour(System.String)">
+            <summary>
+                记录日志，一小时一个文件
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:CSharp.Utilities.LogHelper.WriteLogToFilePerDay(System.String)">
+            <summary>
+                记录日志，一天一个文件
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:CSharp.Utilities.LogHelper.WriteLogToFilePerFile(System.String)">
+            <summary>
+                记录日志，一次一个文件
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:CSharp.Utilities.LogHelper.WriteLogToFile(System.String,System.String)">
+            <summary>
+                记录日志
+            </summary>
+            <param name="log"></param>
+            <param name="time"></param>
+        </member>
+        <member name="T:CSharp.Utilities.AesEncrypt">
+            <summary>
+                Aes加密,比DES加密好
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.AesEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+                加密
+            </summary>
+            <param name="encryptString">带加密字符串</param>
+            <param name="encryptKey">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.AesEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+                解密
+            </summary>
+            <param name="decryptString">带解密字符串</param>
+            <param name="decryptKey">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.MailHelper">
+            <summary>
+            邮件发送
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.MailHelper.SendEMail(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+                发送邮件
+            </summary>
+            <param name="server">邮件服务器</param>
+            <param name="from">发送者的邮件地址</param>
+            <param name="fromPassword">邮件登陆密码</param>
+            <param name="to">接收者的邮件地址</param>
+            <param name="title">邮件标题</param>
+            <param name="content">邮件内容</param>
+            <param name="excelPath">附件路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.Md5Helper">
+            <summary>
+                md5 加密帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.Md5Helper.Md5Encode(System.String)">
+            <summary>
+                MD5　32位小写加密
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.PluginHelper">
+            <summary>
+                插件帮助类
+            </summary>
+        </member>
+        <member name="F:CSharp.Utilities.PluginHelper.DomainDic">
+            <summary>
+                插件集合
+            </summary>
+        </member>
+        <member name="F:CSharp.Utilities.PluginHelper.LockObj">
+            <summary>
+            锁对象
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.PluginHelper.RemovePlugin(System.String)">
+            <summary>
+                移除 插件
+            </summary>
+            <param name="filePath">DLL 完整路径</param>
+        </member>
+        <member name="M:CSharp.Utilities.PluginHelper.CreatePlugin(System.String,System.String)">
+            <summary>
+                创建实例, 重复创建时，会覆盖
+            </summary>
+            <param name="filePath">DLL 完整路径</param>
+            <param name="className">命名空间+类名</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.PluginHelper.AddDomain(System.String,System.AppDomain)">
+            <summary>
+                添加 插件
+            </summary>
+            <param name="filePath"></param>
+            <param name="domain"></param>
+        </member>
+        <member name="M:CSharp.Utilities.PluginHelper.Contains(System.String)">
+            <summary>
+                判断是否存在
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.PluginHelper.CreateDomain(System.String)">
+            <summary>
+                动态加载DLL
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.PluginBase">
+            <summary>
+            插件父类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.PluginBase.InitializeLifetimeService">
+            <summary>
+            重写对象生存周期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.ConfigHelper">
+            <summary>
+                配置文件帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.GetConnValue(System.String)">
+            <summary>
+                根据 Key 取 Value 值
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.SetConnValue(System.String,System.String)">
+            <summary>
+                根据 Key 修改 Value
+                但不修改配置文件
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.AddConnValue(System.String,System.String)">
+            <summary>
+                添加新的 Key ，Value 键值对
+                并保存到配置文件
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.UpdateConnValue(System.String,System.String)">
+            <summary>
+                按 Key ，修改 Value 值,
+                并保存到配置文件
+            </summary>
+            <param name="key">Key</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.RemoveConnValue(System.String)">
+            <summary>
+                根据 Key 删除项,
+                并保存到配置文件
+            </summary>
+            <param name="key">Key</param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.GetAppValue(System.String)">
+            <summary>
+                根据 Key 取 Value 值
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.SetAppValue(System.String,System.String)">
+            <summary>
+                根据 Key 修改 Value , 但不修改配置文件
+            </summary>
+            <param name="key">要修改的Key</param>
+            <param name="value">要修改为的值</param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.AddAppValue(System.String,System.String)">
+            <summary>
+                添加新的 Key ，Value 键值对 , 并保存到配置文件
+            </summary>
+            <param name="key">Key</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.UpdateAppValue(System.String,System.String)">
+            <summary>
+                按 Key ，修改 Value 值,并保存到配置文件
+            </summary>
+            <param name="key">Key</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:CSharp.Utilities.ConfigHelper.RemoveAppValue(System.String)">
+            <summary>
+                根据 Key 删除项,并保存到配置文件
+            </summary>
+            <param name="key">Key</param>
+        </member>
+        <member name="T:CSharp.Utilities.EncodeHelper">
+            <summary>
+                编码帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.EncodeHelper.GetEncoding(System.String)">
+            <summary>
+                根据编码名获取相应编码
+            </summary>
+            <param name="encodeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.EncodeHelper.UnicodeDecode(System.String)">
+            <summary>
+                unicode 解码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.EncodeHelper.UrlDecode(System.String)">
+            <summary>
+                url 解码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.EncodeHelper.UrlEncode(System.String)">
+            <summary>
+                url 编码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.EncodeHelper.UriDecode(System.String)">
+            <summary>
+                uri 解码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.EncodeHelper.DecodeByEncodingName(System.String,System.String)">
+            <summary>
+                用指定的编码解码
+            </summary>
+            <param name="encodingName"></param>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.RandomHelper">
+            <summary>
+            随机数帮助类
+            </summary>
+        </member>
+        <member name="F:CSharp.Utilities.RandomHelper.Ran">
+            <summary>
+                Random 对象
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.RandomHelper.GetRandomString(System.Int32)">
+            <summary>
+                指定长度的纯数字随机字符串
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.RandomHelper.GetRandomEng(System.Int32)">
+            <summary>
+                返回指定长度的小写英文随机字符串
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.RandomHelper.GetRandomDouble">
+            <summary>
+                返回随机 double
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.RandomHelper.GetRandom">
+            <summary>
+                返回随机数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.RandomHelper.GetRandom(System.Int32)">
+            <summary>
+                返回一个小于 maxValue 的随机数
+            </summary>
+            <param name="maxValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.RandomHelper.GetRandom(System.Int32,System.Int32)">
+            <summary>
+                返回一个大于或等于 minValue 且小于 maxValue 的随机数
+                如果 minValue 等于 maxValue，则返回 minValue
+            </summary>
+            <param name="minValue"></param>
+            <param name="maxValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.ReflectHelper">
+            <summary>
+                反射功能类， 慎用反射， 性能不行
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.CreateInstance``1">
+            <summary>
+                创建类实例, 可以替换工厂
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.CreateInstance(System.Type)">
+            <summary>
+                创建类实例, 可以替换工厂
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.ExecuteMethod``1(System.String,System.Object[],System.Boolean)">
+            <summary>
+                动态调用方法
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="methodName">方法名</param>
+            <param name="objs">方法参数, 个数与方法的参数一致,不然报错</param>
+            <param name="isStatic">是否是静态方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.GetPropertyValue``1(``0,System.String)">
+            <summary>
+            获取列值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.SetPropertyValue``1(``0,System.String,System.String)">
+            <summary>
+            设置列值，不区分大小写
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="propertyName">属性名</param>
+            <param name="propertyValue">属性值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.GetVersion(System.Reflection.Assembly)">
+            <summary>
+            获取版本号
+            </summary>
+            <param name="ass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.ReflectHelper.GetVersion``1(``0)">
+            <summary>
+            获取版本号
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.RegistryHelper">
+            <summary>
+            注册表操作类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.RegistryHelper.SetValue(System.String,System.String,System.Object)">
+            <summary>
+            设置值
+            </summary>
+            <param name="keyName">注册表路径; 例子 : HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\192.168.1.110:1122</param>
+            <param name="valueName">注册表键</param>
+            <param name="value">注册表值</param>
+        </member>
+        <member name="M:CSharp.Utilities.RegistryHelper.GetValue(System.String,System.String,System.Object)">
+            <summary>
+            读取值
+            </summary>
+            <param name="keyName">注册表路径; 例子 : HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\192.168.1.110:1122</param>
+            <param name="valueName">注册表键</param>
+            <param name="defaultValue">注册表值</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.SerializeHelper">
+            <summary>
+                序列化和反序列化
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.XmlSerialize``1(``0)">
+            <summary>
+                文本化XML序列化
+            </summary>
+            <param name="item">对象</param>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.XmlDeserialize``1(System.String)">
+            <summary>
+                文本化XML反序列化
+            </summary>
+            <param name="str">字符串序列</param>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.SoapSerialize``1(``0)">
+            <summary>
+                SoapFormatter序列化
+            </summary>
+            <param name="item">对象</param>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.SoapDeserialize``1(System.String)">
+            <summary>
+                SoapFormatter反序列化
+            </summary>
+            <param name="str">字符串序列</param>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.BinarySerialize``1(``0)">
+            <summary>
+                BinaryFormatter序列化
+            </summary>
+            <param name="item">对象</param>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.BinaryDeserialize``1(System.String)">
+            <summary>
+                BinaryFormatter反序列化
+            </summary>
+            <param name="str">字符串序列</param>
+        </member>
+        <member name="T:CSharp.Utilities.SerializeHelper.UBinder">
+            <summary>
+            序列化绑定
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.SerializeHelper.UBinder.BindToType(System.String,System.String)">
+            <summary>
+            类型绑定
+            </summary>
+            <param name="assemblyName"></param>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.Singleton`1">
+            <summary>
+                泛型单例
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:CSharp.Utilities.Singleton`1.LockObj">
+            <summary>
+            锁对象
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.Singleton`1.#ctor">
+            <summary>
+                构造函数
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.Singleton`1.GetInstance">
+            <summary>
+                获取实例
+            </summary>
+        </member>
+        <member name="T:CSharp.Utilities.SMSHelper">
+            <summary>
+                发送短信帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.SMSHelper.SendMessage(System.String,System.String[])">
+            <summary>
+                发送短信,只支持61个字符,超出后会自动切分成多条
+            </summary>
+            <param name="content">内容</param>
+            <param name="phoneNumbers">手机号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SMSHelper.SplitByLenght(System.String,System.Int32)">
+            <summary>
+                按长度截取字符串
+            </summary>
+            <param name="s"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.SqlHelper">
+            <summary>
+            sqlHelper
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.AttachParameters(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            这个方法用来将命令对象和一组参数对象联系起来
+            
+            This method will assign a value of DbNull to any parameter with a direction of
+            InputOutput and a value of null.  给输出类型参数对象赋空值
+            
+            This behavior will prevent default values from being used, but
+            this will be the less common case than an intended pure output parameter (derived as InputOutput)
+            where the user provided no input value.
+            </summary>
+            <param name="command">The command to which the parameters will be added</param>
+            <param name="commandParameters">an array of SqlParameters tho be added to command</param>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Object[])">
+            
+            <summary>
+            这个方法用来给一组参数对象赋值
+            </summary>
+            <param name="commandParameters">array of SqlParameters to be assigned values</param>
+            <param name="parameterValues">array of objects holding the values to be assigned</param>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Collections.Hashtable)">
+            <summary>
+            注册 Param
+            </summary>
+            <param name="commandParameters"></param>
+            <param name="parameterValues"></param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.PrepareCommand(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            This method opens (if necessary) and assigns a connection, transaction, command type and parameters 
+            to the provided command.
+            </summary>
+            <param name="command">the SqlCommand to be prepared</param>
+            <param name="connection">a valid SqlConnection, on which to execute this command</param>
+            <param name="transaction">a valid SqlTransaction, or 'null'</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParameters to be associated with the command or 'null' if no parameters are required</param>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.Connect(System.String)">
+            <summary>
+            是否能连接数据库
+            </summary>
+            <param name="conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String)">
+            
+            <summary>
+            执行一个指定连接串上的一个SqlCommand（不返回记录集也没有任何参数）
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            执行一个指定连接串上的一个SqlCommand（不返回记录集），使用指定的参数集 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.String,System.String,System.Object[])">
+            
+            <summary>
+            执行一个存储过程并赋值，这个方法将从数据库中获得存储过程的参数对象并根据其顺序赋值
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(connString, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored prcedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.String,System.String,System.Collections.Hashtable)">
+            <summary>
+            ExecuteNonQuery
+            </summary>
+            <param name="connectionString"></param>
+            <param name="spName"></param>
+            <param name="parameterValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(conn, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns no resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "PublishOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns no resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns no resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int result = ExecuteNonQuery(conn, trans, "PublishOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an int representing the number of rows affected by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataTable(System.String,System.Data.CommandType,System.String)">
+            <summary>
+            返回 DataTable
+            </summary>
+            <param name="connectionString"></param>
+            <param name="commandType"></param>
+            <param name="commandText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataTable(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回 DataTable
+            </summary>
+            <param name="connectionString"></param>
+            <param name="commandType"></param>
+            <param name="commandText"></param>
+            <param name="commandParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.String,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(connString, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             DataSet ds = ExecuteDataset(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[],CSharp.Utilities.SqlHelper.SqlConnectionOwnership)">
+            
+            <summary>
+            Create and prepare a SqlCommand, and call ExecuteReader with the appropriate CommandBehavior.
+            </summary>
+            <remarks>
+            If we created and opened the connection, we want the connection to be closed when the DataReader is closed.
+            
+            If the caller provided the connection, we want to leave it to them to manage.
+            </remarks>
+            <param name="connection">a valid SqlConnection, on which to execute this command</param>
+            <param name="transaction">a valid SqlTransaction, or 'null'</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParameters to be associated with the command or 'null' if no parameters are required</param>
+            <param name="connectionOwnership">indicates whether the connection parameter was provided by the caller, or created by SqlHelper</param>
+            <returns>SqlDataReader containing the results of the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.String,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(connString, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+              SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             SqlDataReader dr = ExecuteReader(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a SqlDataReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the database specified in 
+            the connection string. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the database specified in 
+            the connection string using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(connString, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="connectionString">a valid connection string for a SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(conn, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the specified
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             int orderCount = (int)ExecuteScalar(trans, "GetOrderCount", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an object containing the value in the 1x1 resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
+            using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(conn, "GetOrders", 24, 36);
+            </remarks>
+            <param name="connection">a valid SqlConnection</param>
+            <param name="spName">the name of the stored procedure using "FOR XML AUTO"</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlTransaction. 
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders");
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            Execute a SqlCommand (that returns a resultset) against the specified SqlTransaction
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="commandType">the CommandType (stored procedure, text, etc.)</param>
+            <param name="commandText">the stored procedure name or T-SQL command using "FOR XML AUTO"</param>
+            <param name="commandParameters">an array of SqlParamters used to execute the command</param>
+            <returns>an XmlReader containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            
+            <summary>
+            Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified 
+            SqlTransaction using the provided parameter values.  This method will query the database to discover the parameters for the 
+            stored procedure (the first time each stored procedure is called), and assign the values based on parameter order.
+            </summary>
+            <remarks>
+            This method provides no access to output parameters or the stored procedure's return value parameter.
+            
+            e.g.:  
+             XmlReader r = ExecuteXmlReader(trans, "GetOrders", 24, 36);
+            </remarks>
+            <param name="transaction">a valid SqlTransaction</param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="parameterValues">an array of objects to be assigned as the input values of the stored procedure</param>
+            <returns>a dataset containing the resultset generated by the command</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelper.InsertDb(System.String,System.Data.DataTable,System.String)">
+            <summary>
+            入库,单个表
+            </summary>
+            <param name="tableName"></param>
+            <param name="dt"></param>
+            <param name="connString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.SqlHelper.SqlConnectionOwnership">
+            
+            <summary>
+            this enum is used to indicate whether the connection was provided by the caller, or created by SqlHelper, so that
+            we can set the appropriate CommandBehavior when calling ExecuteReader()
+            </summary>
+        </member>
+        <member name="F:CSharp.Utilities.SqlHelper.SqlConnectionOwnership.Internal">
+            
+            <summary>Connection is owned and managed by SqlHelper</summary>
+        </member>
+        <member name="F:CSharp.Utilities.SqlHelper.SqlConnectionOwnership.External">
+            
+            <summary>Connection is owned and managed by the caller</summary>
+        </member>
+        <member name="T:CSharp.Utilities.SqlHelperParameterCache">
+            <summary>
+            SqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the
+            ability to discover parameters for stored procedures at run-time.
+            SqlHelperParameterCache支持函数来实现静态缓存存储过程参数，并支持在运行时得到存储过程的参数
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelperParameterCache.DiscoverSpParameterSet(System.String,System.String,System.Boolean)">
+            <summary>
+            resolve at run time the appropriate set of SqlParameters for a stored procedure
+            在运行时得到一个存储过程的一系列参数信息
+            </summary>
+            <param name="connectionString">
+                a valid connection string for a SqlConnection
+                一个连接对象的有效连接串
+            </param>
+            <param name="spName">
+                the name of the stored procedure
+                存储过程名
+            </param>
+            <param name="includeReturnValueParameter">是否有返回值参数</param>
+            <returns>参数对象数组，存储过程的所有参数信息</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelperParameterCache.CacheParameterSet(System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            
+            <summary>
+            将参数数组添加到缓存中
+            </summary>
+            <param name="connectionString">有效的连接串</param>
+            <param name="commandText">一个存储过程名或者T-SQL命令</param>
+            <param name="commandParameters">一个要被缓存的参数对象数组</param>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelperParameterCache.GetCachedParameterSet(System.String,System.String)">
+            
+            <summary>
+            从缓存中获得参数对象数组
+            </summary>
+            <param name="connectionString">有效的连接串</param>
+            <param name="commandText">一个存储过程名或者T-SQL命令</param>
+            <returns>一个参数对象数组</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String)">
+            <summary>
+            获得存储过程的参数集
+            </summary>
+            <remarks>
+            这个方法从数据库中获得信息，并将之存储在缓存，以便之后的使用
+            </remarks>
+            <param name="connectionString">有效的连接串</param>
+            <param name="spName"></param>
+            <returns>一个参数对象数组</returns>
+        </member>
+        <member name="M:CSharp.Utilities.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String,System.Boolean)">
+            <summary>
+            获得存储过程的参数集
+            </summary>
+            <remarks>
+            这个方法从数据库中获得信息，并将之存储在缓存，以便之后的使用
+            </remarks>
+            <param name="connectionString">
+                a valid connection string for a SqlConnection
+                有效的连接串
+            </param>
+            <param name="spName">the name of the stored procedure</param>
+            <param name="includeReturnValueParameter">
+                a bool value indicating whether the return value parameter should be included in the results
+                是否有返回值参数
+            </param>
+            <returns>an array of SqlParameters</returns>
+            ///
+            <returns>一个参数对象数组</returns>
+        </member>
+        <member name="T:CSharp.Utilities.StringHelper">
+            <summary>
+                字符串操作帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Spilt(System.String,System.String[])">
+            <summary>
+                切分字符串
+            </summary>
+            <param name="content">内容</param>
+            <param name="strs">切分符</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Spilt(System.String,System.Char[])">
+            <summary>
+                切分字符串
+            </summary>
+            <param name="content">内容</param>
+            <param name="chars">切分符</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Join(System.Collections.Generic.IEnumerable{System.String},System.Char)">
+            <summary>
+                拼接字符串
+            </summary>
+            <param name="strs"></param>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+                拼接字符串
+            </summary>
+            <param name="strs"></param>
+            <param name="split"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Contains(System.Collections.Generic.IEnumerable{System.String},System.Char,System.Boolean)">
+            <summary>
+                判断数组是否包含字符串（去前后空格）
+            </summary>
+            <param name="strs">内容</param>
+            <param name="c">匹配项</param>
+            <param name="isIgnoreCase">是否区分大小写（默认不区分）</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Contains(System.Collections.Generic.IEnumerable{System.String},System.String,System.Boolean)">
+            <summary>
+                判断数组是否包含字符串（去前后空格）
+            </summary>
+            <param name="strs">内容</param>
+            <param name="str">匹配项</param>
+            <param name="isIgnoreCase">是否区分大小写（默认不区分）</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.Contains(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+                判断字符串是否包含数组中的一项（去前后空格）
+            </summary>
+            <param name="strs">匹配项</param>
+            <param name="str">内容</param>
+            <param name="isIgnoreCase">是否区分大小写（默认不区分）</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.GetSameList(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+                获取2个集合内相同项
+            </summary>
+            <param name="firstList"></param>
+            <param name="secondList"></param>
+            <param name="isIgnoreCase">是否区分大小写（默认不区分）</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.GetNotSameList(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+                获取第一个集合内与第二个集合不同的项
+            </summary>
+            <param name="firstList"></param>
+            <param name="secondList"></param>
+            <param name="isIgnoreCase">是否区分大小写（默认不区分）</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.StringHelper.GetFullList(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+                获取2个集合的并集
+            </summary>
+            <param name="firstList"></param>
+            <param name="secondList"></param>
+            <param name="isIgnoreCase">是否区分大小写（默认不区分）</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.TypeConverter">
+            <summary>
+                类型转换扩展类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt32(System.String)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt64(System.String)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt32(System.Object)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt64(System.Object)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt(System.Char)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt32(System.Double)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="dou"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToInt64(System.Double)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="dou"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToDouble(System.String)">
+            <summary>
+                ToDouble 扩展方法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToDouble(System.Object)">
+            <summary>
+                ToDouble 扩展方法
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToDateTime(System.String)">
+            <summary>
+                ToDateTime 扩展方法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToDateTime(System.Object)">
+            <summary>
+                ToDateTime 扩展方法
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToIpAddress(System.String)">
+            <summary>
+                string 转 IPAddress
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToBool(System.String)">
+            <summary>
+            string 转 bool
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToByte(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToVersion(System.String)">
+            <summary>
+                ToInt 扩展方法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ConvertTimeSpan(System.TimeSpan)">
+            <summary>
+            TimeSpan 转string（1天3小时5分20秒）
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.ToType(System.String,System.String)">
+            <summary>
+            类型转换
+            </summary>
+            <param name="content"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.IsInt(System.String)">
+            <summary>
+                是否是Int类型
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.IsInt(System.Char)">
+            <summary>
+                是否是Int类型
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.IsInt(System.Double)">
+            <summary>
+                是否是Int类型
+            </summary>
+            <param name="dou"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.IsDouble(System.String)">
+            <summary>
+                是否是Double类型
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.IsDateTime(System.String)">
+            <summary>
+                是否是DateTime类型
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.TypeConverter.IsIpAddress(System.String)">
+            <summary>
+                是否是IPAddress类型
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharp.Utilities.XmlHelper">
+            <summary>
+            Xml 帮助类
+            </summary>
+        </member>
+        <member name="M:CSharp.Utilities.XmlHelper.GetAttValue(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+                获取节点属性
+            </summary>
+            <param name="filePath">配置文件路径</param>
+            <param name="selectAttValue">查找属性值</param>
+            <param name="nodeName">节点名</param>
+            <param name="selectAttName">查找属性名</param>
+            <param name="returnAttValueName">返回属性名</param>
+            <param name="isIgnoreCase">是否区分大小写</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.XmlHelper.SetAttValue(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+                修改节点属性值
+            </summary>
+            <param name="filePath">配置文件路径</param>
+            <param name="selectAttValue">查找属性值</param>
+            <param name="setAttValue">修改的值</param>
+            <param name="nodeName">节点名</param>
+            <param name="selectAttName">查找属性名</param>
+            <param name="returnAttValueName">返回属性名</param>
+            <param name="isIgnoreCase">是否区分大小写</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharp.Utilities.XmlHelper.ReadXml(System.String)">
+            <summary>
+            读取 Xml
+            </summary>
+            <param name="filePath"></param>
+        </member>
+    </members>
+</doc>

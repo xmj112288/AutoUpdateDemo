@@ -1,0 +1,9 @@
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\bin\Exe\AutoUpdateClient.exe
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\bin\AutoUpdateServer.dll.config
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\bin\AutoUpdateServer.dll
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\bin\AutoUpdateServer.pdb
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\bin\CSharp.Utilities.dll
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\bin\CSharp.Utilities.pdb
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\obj\Release\AutoUpdateServer.csprojResolveAssemblyReference.cache
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\obj\Release\AutoUpdateServer.dll
+E:\xmj\WorkSpace\C#\AutoUpdateDemo\AutoUpdateServer\obj\Release\AutoUpdateServer.pdb
